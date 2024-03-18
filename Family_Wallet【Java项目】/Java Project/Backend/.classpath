@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="FamilyWallet_test/src"/>
+	<classpathentry kind="lib" path="C:/Users/Danny/Desktop/mysql-connector-java-5.1.32.jar"/>
+	<classpathentry kind="output" path="FamilyWallet_test/out/production/FamilyWallet_test"/>
+</classpath>
