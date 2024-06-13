@@ -1,0 +1,63 @@
+<!--日记详情页-->
+{% extends 'base.html' %}
+
+{% block title %}
+佳肴详情（Delicacies details）
+{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'highlight/styles/default.min.css' %}">
+    <script src="{% static 'highlight/highlight.min.js' %}"></script>
+{% endblock %}
+
+{% block main %}
+ <h1>{{ blog.title }}</h1>
+    <!--作者信息-->
+    <hr>
+    <div class="mt-2">  
+        <img src="{% static 'image/user1.jpg' %}" width="30" height="30" rounded> <!--头像-->
+        <span class="m-2">{{ blog.author.username }}</span>
+        <span class="m-2">于（At）</span>
+        <span class="m-2">{{ blog.pub_time|date:"Y年n月d日 G时i分" }}</span>
+        <span class="m-2">发布（Publish）</span>
+    </div>
+    <hr>
+    <!--日记信息-->
+    <div class="py-2">
+        {{ blog.content|safe }}
+    </div>
+    <hr>
+    <!--评论框-->
+    <div class="mt-2">
+        <h3>评论（comment(s)）（{{ blog.comments.all|length }}）</h3>
+        <form action="{% url 'blog:pub_comment' %}" method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="blog_id" value="{{ blog.id }}">
+            <div class="mt-2">
+                <input type="text" class="form-control" placeholder="请输入评论（Please enter a comment:>）" name="content">
+            </div>
+            <div class="text-end mt-2">
+                <button type="submit" class="btn btn-primary">评论(Comment)</button>
+            </div>
+        </form>
+    </div>
+    <div class="mt-2">
+        <ul class="list-group list-group-flush">
+            {% for comment in blog.comments.all %}
+                <li class="list-group-item">
+                  <div class="d-flex justify-content-between text-body-secondary">
+                      <div class="user-info">
+                          <img src="{% static 'image/user1.jpg' %}" class="rounded-circle" width="40" height="40" alt="">
+                          <span class="ms-2">{{ comment.author.username }}</span>
+                      </div>
+                      <div class="create-time" style="line-height: 40px;">{{ comment.pub_time|date:"Y年m月d日 G时i分" }}</div>
+                  </div>
+                  <div class="mt-2">{{ comment.content }}</div>
+              </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <script>
+    hljs.highlightAll();
+    </script>
+{% endblock %}

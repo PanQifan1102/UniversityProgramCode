@@ -1,0 +1,32 @@
+<!--登录页面-->
+{% extends 'base.html' %}
+
+{% block title %}
+    登录（login）
+{% endblock %}
+
+{% block main %}
+<div style="max-width:330px;" class="m-auto">
+        <h3>登录（Login）</h3>   <!--登录界面-->  
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label>邮箱（Email）</label>
+                <input type="email" name="email" class="form-control" placeholder="邮箱（Email）:>">
+            </div>
+             <div class="mb-3">
+                <label>密码（Password）</label>
+                <input type="password" name="password" class="form-control" placeholder="密码（Password）:>">
+            </div>
+            <div class="form-check mb-3">
+                <input class="form-check-input" type="checkbox" name='remember' value="1" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                    记住我（Remember me）
+                </label>
+            </div>
+            <div class="mb-3">
+                <button class="btn btn-primary w-100">登录账号（Log in）</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}
