@@ -134,11 +134,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # 邮箱相关
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.qq.com'
-EMAIL_HOST_USER = '2397591850@qq.com'
-EMAIL_HOST_PASSWORD = 'ctgeayqfqilfdjfc'
+EMAIL_HOST_USER = '[Your E-mail account]'
+EMAIL_HOST_PASSWORD = '[Your POP3/IMAP/SMTP/Exchange/CardDAV/CalDAV_Service]'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_USE_SSL = False
-DEFAULT_FROM_EMAIL = '2397591850@qq.com'
+DEFAULT_FROM_EMAIL = '[Your E-mail account]'
 
 LOGIN_URL = '/auth/login'
